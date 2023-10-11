@@ -14,9 +14,18 @@ client_socket, client_address = server_socket.accept()
 print(f"{client_address} приєднався")
 
 data = client_socket.recv(1024)
+size = int(client_socket.recv(1024).decode('utf-8'))
+time.sleep(5)
 
-print(
-    f"Отримано: {data.decode('utf-8')} ({time.strftime('%Y-%m-%d %H:%M:%S')})")
+if size == len(data):
+
+    print(
+        f"Отримано: {data.decode('utf-8')} ({time.strftime('%Y-%m-%d %H:%M:%S')})")
+    client_socket.sendall(("Ви надіслали: "+data).encode('utf-8'))
+else:
+    print(f"Дані пошкоджено")
+    client_socket.sendall(("Дані пошкоджено: "+data).encode('utf-8'))
+
 
 client_socket.close()
 server_socket.close()
