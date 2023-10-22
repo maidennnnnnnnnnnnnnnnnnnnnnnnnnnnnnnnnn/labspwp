@@ -19,6 +19,9 @@ def get_cookie_value(cookie_name):
 def set_cookie(cookie_name, cookie_value):
     print("Set-Cookie: {}={}; Path=/".format(cookie_name, cookie_value))
 
+def delete_cookie(cookie_name):
+    print("Set-Cookie: {}=0; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT".format(cookie_name))
+
 counter_cookie = get_cookie_value('form_counter')
 
 if counter_cookie is None:
@@ -34,6 +37,11 @@ experience = form.getvalue("experience")
 preferences = form.getlist("preferences[]")
 selected_radio = form.getvalue("radio")
 
+delete_cookie_button = form.getvalue("delete_cookie_button")
+if delete_cookie_button:
+    delete_cookie('form_counter')
+    counter = 0
+
 print("Content-type: text/html\n")
 print("<html>")
 print("<head>")
@@ -47,5 +55,10 @@ print("<p><strong>Досвід у програмуванні:</strong> {}</p>".f
 print("<p><strong>Вподобання:</strong> {}</p>".format(", ".join(preferences)))
 print("<p><strong>Обрана мова програмування:</strong> {}</p>".format(selected_radio))
 print("<p><strong>Лічильник заповнених форм:</strong> {}</p>".format(counter))
+
+print('<form action="" method="post">')
+print('<input type="submit" name="delete_cookie_button" value="Видалити cookie">')
+print('</form>')
+
 print("</body>")
 print("</html>")
