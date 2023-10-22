@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Порівняння PHP і Python</title>
+</head>
+
+<body>
+    <h2>Виберіть мову програмування:</h2>
+    <form action="/cgi-bin/main.py" method="post">
+        <label for="language">Мова програмування:</label>
+        <select id="language" name="language">
+            <option value="php">PHP</option>
+            <option value="python">Python</option>
+        </select>
+        <br>
+        <label for="experience">Ваш досвід у програмуванні:</label>
+        <input type="text" id="experience" name="experience" required>
+        <br>
+        <label>Ваші вподобання:</label><br>
+        <input type="checkbox" id="web" name="preferences[]" value="web">
+        <label for="web">Веб-розробка</label><br>
+        <input type="checkbox" id="data" name="preferences[]" value="data">
+        <label for="data">Аналіз даних</label><br>
+        <br>
+        <input type="radio" id="php" name="radio" value="php">
+        <label for="php">PHP</label><br>
+        <input type="radio" id="python" name="radio" value="python">
+        <label for="python">Python</label><br>
+        <br>
+        <input type="submit" value="Відправити">
+    </form>
+</body>
+
+</html>
