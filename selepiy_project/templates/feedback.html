@@ -1,9 +1,31 @@
 {% extends 'base.html' %}
 <!--  -->
-{% block title %}{% endblock %}
+{% block title %}Опитування{% endblock %}
 <!--  -->
 {% block nav %}
+<li class="nav-item">
+    <a class="nav-link active" href="{{ url_for('index') }}">Початкова сторінка</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="{{ url_for('portfolio') }}">Портфоліо</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="{{ url_for('about') }}">Про проект</a>
+</li>
 {% endblock %}
 <!--  -->
 {% block content %}
+<div class="form-group" style="margin: 10px; text-align: center;">
+    <label class="col-form-label mt-4" for="inputDefault">Введіть ваш відгук. Він дуже важливий!</label>
+    <input type="text" class="form-control" placeholder="Ваш відгук повинен бути написаний тут." id="inputDefault">
+</div>
+<hr>
+<div class="card border-secondary mb-3" style="max-width: 20rem; margin: 10px;">
+    <div class="card-header">Header</div>
+    <div class="card-body">
+        <h4 class="card-title">Secondary card title</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+    </div>
+</div>
 {% endblock %}
