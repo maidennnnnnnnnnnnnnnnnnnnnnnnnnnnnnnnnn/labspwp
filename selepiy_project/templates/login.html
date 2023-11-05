@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 <!--  -->
-{% block title %}Моє Портфоліо{% endblock %}
+{% block title %}Вхід у профіль{% endblock %}
 <!--  -->
 {% block nav%}
 <li class="nav-item">
@@ -18,6 +18,20 @@
 {% endblock %}
 <!--  -->
 {% block content %}
-<h1>Це початкова сторінка проекту</h1>
-<p>Використовуйте кнопки вище, щоб навігуватись по сайту.</p>
+
+<form method="POST" action="{{ url_for('login') }}">
+    <table class="table table-hover" style="text-align: center;">
+        <tr class="table-primary">
+            <td>{{ form.username.label }}</td>
+            <td>{{ form.password.label }}</td>
+        </tr>
+        <tr class="table-primary">
+            <td>{{ form.username() }}</td>
+            <td>{{ form.password() }}</td>
+        </tr>
+        <tr class="table-primary">
+            <td colspan="2">{{ form.hidden_tag() }} {{ form.submit() }}</td>
+        </tr>
+    </table>
+</form>
 {% endblock %}
