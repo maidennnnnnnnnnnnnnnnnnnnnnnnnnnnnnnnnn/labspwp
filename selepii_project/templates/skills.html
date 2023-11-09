@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 <!--  -->
-{% block title %}Початкова сторінка{% endblock %}
+{% block title %}Мої Навички{% endblock %}
 <!--  -->
 {% block nav%}
 <li class="nav-item">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit"><a class="nav-link active"
-            href="{{ url_for('portfolio') }}">Портфоліо</a></button>
+            href="{{ url_for('index') }}">Початкова сторінка</a></button>
 </li>
 <li class="nav-item">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit"><a class="nav-link active"
-            href="{{ url_for('skills') }}">Мої навички</a></button>
+            href="{{ url_for('portfolio') }}">Портфоліо</a></button>
 </li>
 <li class="nav-item">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit"><a class="nav-link active"
@@ -18,6 +18,10 @@
 {% endblock %}
 <!--  -->
 {% block content %}
-<h1>Це початкова сторінка проекту</h1>
-<p>Використовуйте кнопки вище, щоб навігуватись по сайту.</p>
+<h2>Мої навички:</h2>
+<ul>
+    {% for skill in skills %}
+    <li>{{ skill }}</li>
+    {% endfor %}
+</ul>
 {% endblock %}

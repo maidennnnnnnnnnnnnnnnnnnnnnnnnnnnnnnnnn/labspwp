@@ -23,5 +23,16 @@ def portfolio():
     return render_template('portfolio.html', data=data)
 
 
+my_skills = ["Вміння керувати автомобілем",
+             "Вміння плавати у глибокій воді", "Знання англійської мови", "Економний"]
+
+
+@app.route('/skills', defaults={'id': None})
+@app.route('/skills/<int:id>')
+def skills(id):
+    data = [os.name, datetime.datetime.now(), request.user_agent]
+    return render_template('skills.html', id=id, skills=my_skills, data=data)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
